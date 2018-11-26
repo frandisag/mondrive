@@ -1,0 +1,58 @@
+page-lemburdetail {
+    ion-card.card {
+		font-weight: bolder;
+		box-shadow: none;
+		border: 1px solid #ececec;
+		//border-radius: 5%;
+		background: transparent;
+	}
+
+	.labeltext {
+		margin-bottom: 23px;
+		display: inline-block;
+		vertical-align: bottom;
+		color: white;
+	}
+
+	.selesai {
+		background-color: #845587;
+		//background-color: radial-gradient(yellow, blue);
+		//background-image: radial-gradient(white 5%, #845587 15%, white 60%);
+		//background-color: #73E925;
+		border-radius: 56px;
+		padding-left: 2px;
+		padding-right: 2px;
+		margin-right: 3px;
+		margin-left: 3px;
+	}
+
+	.back {
+		//background-color: #845587;
+		//background-color: radial-gradient(red, green, blue);
+		//background-image: radial-gradient(white 5%, #845587 15%, white 60%);
+		background: linear-gradient(95deg ,#D323CD, #845587);
+		border-radius: 56px;
+		padding-left: 2px;
+		padding-right: 2px;
+		margin-right: 3px;
+		margin-left: 3px;
+	}
+
+	ion-spinner * {
+	  width: 56px;
+	  height: 56px;
+	  
+	  //stroke: #444;
+	  //fill: #222;
+	}
+
+	.rightload {
+		margin-left: -28px;
+    margin-top: -28px;	
+	}
+
+	.leftload {
+		margin-left: -28px;
+    margin-top: -28px;		
+	}
+}

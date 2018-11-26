@@ -1,0 +1,40 @@
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown" 
+      pullingText="Pull to refresh" 
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher> 
+	<div id="map_canvas" style="height: 40%; border: 1px solid #ececec"></div>
+	<ion-card no-padding>
+	  <ion-card-content text-center (tap)="getPhoto()">
+	    <ion-icon *ngIf="!param.avatar" name="md-camera" style="color: #afafaf; font-size: 25px;"></ion-icon>
+	    <div *ngIf="!param.avatar">Ambil Gambar <br>Kilometer Terakhir</div>
+      <img *ngIf="param.avatar" [src]="param.avatar">
+	  </ion-card-content>
+	</ion-card>
+	<ion-list no-line padding>
+  	<ion-label stacked text-left color="button">Pilih Mobil : </ion-label>
+    <ion-item no-line text-left class="rounded">
+    	<ion-label><span style="display: none;">Pilih Mobil</span></ion-label>
+      <ion-select [(ngModel)]="param.CarBankId" text-right>
+		    <ion-option *ngFor="let car of cars" [value]="car.CarBankId">{{car.BrandName}} {{car.PlatNo}}</ion-option>
+		  </ion-select>
+    </ion-item>
+    <!-- <br> -->
+    <ion-label stacked text-left color="button">Kilometer Terakhir :</ion-label>
+    <ion-item no-line class="rounded">
+      <ion-input  
+        text-right 
+        class="custom-input" 
+        block round 
+        type="number" 
+        placeholder="" 
+        [(ngModel)]="param.kmterakhir">
+      </ion-input>
+    </ion-item>
+    <br>
+    <button ion-button block round color="button" (tap)="simpan()">Simpan</button>
+  </ion-list>
+</ion-content>

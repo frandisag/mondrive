@@ -1,0 +1,91 @@
+@font-face {
+  font-family: Roboto_Light;
+  src: url('../assets/fonts/Roboto-Light.ttf') format("truetype");
+}
+.app-root {
+  font-family: Roboto_Light !important;
+}
+ion-input {
+  &.custom-input {
+    text-align: right !important;
+    ::placeholder {
+      text-align: left;
+    }
+  }
+}
+
+ion-select {
+  max-width: 100%;
+}
+
+.has-refresher  .scroll-content {
+  border-top: 0 !important;
+}
+
+.tumb {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.rounded {
+  border: solid 1px #0066b1;
+  width: 100%;
+  opacity: 0.8;
+  -moz-border-radius: 64px;
+  -webkit-border-radius: 64px;
+}
+
+.toast-container{
+    background-color: color($colors,button);
+    text-align: center;
+}
+
+.toast-message {
+  white-space: pre-line;
+}
+
+%no-input-border {
+	border-bottom-color: transparent;
+	box-shadow: none;
+}
+
+.button-md {
+    //display: inline-block;
+    //  max-width: 690px;
+    height: 5rem;
+  }
+
+ion-item {
+	&.item-input {
+  	&.item-md {
+  		&.input-has-focus {
+    		.item-inner {
+      			@extend %no-input-border;
+    		}
+  		}
+  	}
+
+  	&.ng-invalid {
+  		&.item-md {
+    		&.ng-touched:not(.input-has-focus):not(.item-input-has-focus) {
+    			.item-inner {
+      			@extend %no-input-border;
+    			}
+    		}
+  		}
+  	}
+
+  	&.ng-valid {
+    		&.item-md {
+      		&.input-has-value:not(.input-has-focus):not(.item-input-has-focus) {
+      			.item-inner {
+        			@extend %no-input-border;
+      			}
+      		}
+    		}
+  	}
+	}
+}

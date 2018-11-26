@@ -1,0 +1,25 @@
+<ion-split-pane>
+  <!--  our side menu  -->
+  <ion-menu [content]="content">
+    <ion-header no-border style="border-bottom: 1px solid #dedede">
+      <ion-toolbar color="trans">
+        <ion-title text-center>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    
+    <ion-content>
+      <ion-list>
+        <ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          <ion-avatar item-start text-center>
+            <i class="material-icons" style="font-size: 40px">{{p.icon}}</i>
+          </ion-avatar>
+          {{p.title}}
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- the main content -->
+  <ion-nav [root]="rootPage" main #content></ion-nav>
+</ion-split-pane>

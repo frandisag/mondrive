@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar color="button">
+    <ion-title>Filter</ion-title>
+    <ion-buttons end>    
+	    <button ion-button icon-only (tap)="dismiss()" style="padding-right:5px">
+	      <ion-icon name="ios-close"></ion-icon>
+	    </button>
+	  </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<ion-list no-line padding>
+  	<ion-label stacked text-left color="button">Dari : </ion-label>
+    <ion-item no-line class="rounded">
+      <ion-label>Dari</ion-label>
+  		<ion-datetime displayFormat="DD MMMM YYYY" [(ngModel)]="param.startdate" (ionCancel)="clearstart()"></ion-datetime>
+  		<button ion-button icon-only style="margin: auto; padding-right: 5px" clear item-right disabled>
+  			<ion-icon name="ios-calendar-outline" color="button" style="font-size: 2.5em"></ion-icon>
+  		</button>
+    </ion-item>
+    <!-- <br> -->
+    <ion-label stacked text-left color="button">Sampai : </ion-label>
+    <ion-item no-line class="rounded">
+      <ion-label>Sampai</ion-label>
+  		<ion-datetime displayFormat="DD MMMM YYYY" [(ngModel)]="param.enddate" (ionCancel)="clearend()"></ion-datetime>
+  		<button ion-button icon-only style="margin: auto; padding-right: 5px" clear item-right disabled>
+  			<ion-icon name="ios-calendar-outline" color="button" style="font-size: 2.5em"></ion-icon>
+  		</button>
+    </ion-item>
+    <br>
+  </ion-list>
+	<ion-fab right bottom>
+    <button ion-fab (tap)="filter()" color="button"><ion-icon name="ios-checkmark-circle-outline"></ion-icon></button>
+  </ion-fab>
+</ion-content>

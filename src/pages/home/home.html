@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-navbar color="button">
+  	<button ion-button menuToggle left>
+      <i class="material-icons">menu</i>
+	  </button>
+    <ion-title text-center style="margin-left: -46px">MONDRIVE</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown" 
+      pullingText="Pull to refresh" 
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher> 
+  <ion-row class="middlerow" padding>
+    <ion-col width-100 text-center>
+      <div><img src="assets/imgs/chatterplace.png"></div>
+      <div class="nickname">{{userData.FullName}}</div>
+      <div class="car">{{userData.PlatNo}}</div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="statusrow" no-padding *ngIf="OnJobStatus == 0">
+    <ion-col width-100 text-center no-padding>
+      <div>Status: Menunggu Tugas</div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="statustugasrow" no-padding *ngIf="OnJobStatus == 1">
+    <ion-col width-100 text-center no-padding>
+      <div>Status: Sedang Bertugas</div>
+    </ion-col>
+  </ion-row>
+  <ion-row padding>
+    <ion-grid no-padding>
+      <ion-row no-padding>
+        <ion-col col-6 no-padding>
+          <ion-card  padding text-center (tap)="openkehadiran()">
+            <i class="material-icons" style="font-size: 80px; color: #7657fa">event</i>
+            <div>Kehadiran</div>
+          </ion-card>
+        </ion-col>
+        <ion-col col-6>
+          <ion-card padding text-center (tap)="openbahanbakar()">
+            <i class="material-icons" style="font-size: 80px; color: #ec5781">local_gas_station</i>
+            <div>Bahan Bakar</div>
+          </ion-card>
+        </ion-col>
+        <ion-col col-6>
+          <ion-badge color="redmerah" *ngIf="countnotif > 0">{{countnotif}}</ion-badge>
+          <ion-card padding text-center (tap)="openorder()">
+            <i class="material-icons" style="font-size: 80px; color: #0ea4a5">directions_car</i>
+            <div>Order</div>
+          </ion-card>
+        </ion-col>
+        <ion-col col-6>
+          <ion-badge color="redmerah" *ngIf="countlemburnotif > 0">{{countlemburnotif}}</ion-badge>
+          <ion-card padding text-center (tap)="openlembur()">
+            <i class="material-icons" style="font-size: 80px; color: #4BE31C">alarm</i>
+            <div>Lembur</div>
+          </ion-card>
+        </ion-col>
+        <ion-col col-6>
+          <ion-card padding text-center (tap)="openbukutelepon()">
+            <i class="material-icons" style="font-size: 80px; color: #ffa907">contact_phone</i>
+            <div>Telepon</div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,69 @@
+<ion-content>
+	<ion-card no-padding>
+	  <ion-card-content text-center (tap)="getPhoto()">
+	    <ion-icon *ngIf="!param.avatar" name="md-camera" style="color: #afafaf; font-size: 25px;"></ion-icon>
+	    <div *ngIf="!param.avatar">Ambil Gambar <br>Kwitansi</div>
+	    <img *ngIf="param.avatar" [src]="param.avatar">
+	  </ion-card-content>
+	</ion-card>
+	<ion-list no-line padding>
+  	<ion-label stacked text-left color="button">Pilih Mobil : </ion-label>
+    <ion-item no-line text-left class="rounded">
+    	<ion-label><span style="display: none;">Pilih Mobil</span></ion-label>
+      <ion-select [(ngModel)]="param.CarBankId" text-right>
+		    <ion-option *ngFor="let car of cars" [value]="car.CarBankId">{{car.BrandName}} {{car.PlatNo}}</ion-option>
+		  </ion-select>
+    </ion-item>
+    <!-- <br> -->
+    <ion-label stacked text-left color="button">Kilometer Pengisian :</ion-label>
+    <ion-item no-line class="rounded">
+      <ion-input 
+        text-right 
+        class="custom-input"
+        block 
+        round 
+        type="number" 
+        placeholder="" 
+        [(ngModel)]="param.KmPengisian">
+      </ion-input>
+    </ion-item>
+    <ion-label stacked text-left color="button">Volume :</ion-label>
+    <ion-item no-line class="rounded">
+      <ion-input 
+        text-right 
+        class="custom-input"
+        block 
+        round 
+        type="number" 
+        placeholder="" 
+        [(ngModel)]="param.Volume">
+      </ion-input>
+    </ion-item>
+    <ion-label stacked text-left color="button">Harga :</ion-label>
+    <ion-item no-line class="rounded">
+      <ion-input 
+        text-right 
+        class="custom-input"
+        block 
+        round 
+        type="number" 
+        placeholder="" 
+        [(ngModel)]="param.Harga">  
+      </ion-input>
+    </ion-item>
+    <ion-label stacked text-left color="button">Tanggal Pengisian : </ion-label>
+    <ion-item no-line class="rounded">
+      <!-- <ion-label>Tanggal Pengisian</ion-label> -->
+  		<ion-datetime displayFormat="DD MMMM YYYY" [(ngModel)]="param.TanggalPengisian"></ion-datetime>
+  		<button ion-button icon-only style="margin: auto; padding-right: 5px" clear item-right disabled>
+  			<ion-icon name="ios-calendar-outline" color="button" style="font-size: 2.5em"></ion-icon>
+  		</button>
+    </ion-item>
+    <ion-label stacked text-left color="button">Catatan :</ion-label>
+    <ion-item no-line class="roundedx">
+      <ion-textarea rows="4" [(ngModel)]="param.Catatan"></ion-textarea>
+    </ion-item>
+    <br>
+    <button ion-button block round color="button" (tap)="simpan()">Simpan</button>
+  </ion-list>
+</ion-content>

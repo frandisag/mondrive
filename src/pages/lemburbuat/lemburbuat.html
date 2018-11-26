@@ -1,0 +1,51 @@
+<ion-header>
+
+  <ion-navbar color="button">
+    <ion-title>Buat Lembur</ion-title>
+    <ion-buttons end>    
+      <button ion-button icon-only (tap)="dismiss()" style="padding-right:5px">
+        <ion-icon name="ios-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list no-line padding style="padding-top: 0px">
+    <ion-label stacked text-left color="button">Tanggal : </ion-label>
+    <ion-item no-line class="rounded">
+      <!-- <ion-label>Tanggal Pengisian</ion-label> -->
+      <ion-datetime displayFormat="DD MMMM YYYY" [(ngModel)]="param.Date"></ion-datetime>
+      <button ion-button icon-only style="margin: auto; padding-right: 5px" clear item-right disabled>
+        <ion-icon name="ios-calendar-outline" color="button" style="font-size: 2.5em"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-label stacked text-left color="button">Dari Jam : </ion-label>
+    <ion-item no-line class="rounded">
+      <!-- <ion-label>Tanggal Pengisian</ion-label> -->
+      <ion-datetime displayFormat="HH : mm" [(ngModel)]="param.StartOver"></ion-datetime>
+      <button ion-button icon-only style="margin: auto; padding-right: 5px" clear item-right disabled>
+        <ion-icon name="ios-time" color="button" style="font-size: 2.5em"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-label stacked text-left color="button">Sampai Jam : </ion-label>
+    <ion-item no-line class="rounded">
+      <!-- <ion-label>Tanggal Pengisian</ion-label> -->
+      <ion-datetime displayFormat="HH : mm" [(ngModel)]="param.EndOver"></ion-datetime>
+      <button ion-button icon-only style="margin: auto; padding-right: 5px" clear item-right disabled>
+        <ion-icon name="ios-time" color="button" style="font-size: 2.5em"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-label stacked text-left color="button">Catatan :</ion-label>
+    <ion-item no-line class="roundedx">
+      <ion-textarea rows="4" [(ngModel)]="param.Note"></ion-textarea>
+    </ion-item>
+    <br>
+    <button ion-button block round color="button" (tap)="simpan()">
+      <ion-label *ngIf="!simpanload">&nbsp;Simpan</ion-label>
+      <ion-spinner class="spinner-energized" *ngIf="simpanload"></ion-spinner>
+    </button>
+  </ion-list>
+</ion-content>

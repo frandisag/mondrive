@@ -1,0 +1,44 @@
+<!--
+  Generated template for the UbahsandiPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="button">
+  	<button ion-button menuToggle left>
+      <i class="material-icons">menu</i>
+	  </button>
+    <ion-title>Ubah Kata Sandi</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-card>
+
+  <ion-card-content>
+    <ion-list no-line no-padding>
+    	<ion-label stacked text-left color="button">Kata Sandi Lama : </ion-label>
+      <ion-item no-line text-left class="rounded">
+        <ion-input type="password" placeholder="Kata Sandi Lama" [(ngModel)]="param.sandilama"></ion-input>
+      </ion-item>
+      <!-- <br> -->
+      <ion-label stacked text-left color="button">Kata Sandi Baru : </ion-label>
+      <ion-item no-line class="rounded">
+        <ion-input block round type="password" placeholder="Kata Sandi Baru" [(ngModel)]="param.sandibaru1"></ion-input>
+      </ion-item>
+      <!-- <br> -->
+      <ion-label stacked text-left color="button">Ketik Ulang Kata Sandi Baru </ion-label>
+      <ion-item no-line class="rounded">
+        <ion-input block round type="password" placeholder="Ketik Ulang Kata Sandi Baru" [(ngModel)]="param.sandibaru2"></ion-input>
+      </ion-item>
+      <br>
+      <button ion-button block round color="button" (tap)="simpan()">Simpan</button>
+    </ion-list>
+  </ion-card-content>
+
+</ion-card>
+</ion-content>

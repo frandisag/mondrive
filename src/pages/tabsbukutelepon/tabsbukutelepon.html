@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar color="button">
+    <ion-title>Buku Telepon</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content has-bouncing="true">
+	<ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown" 
+      pullingText="Pull to refresh" 
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher> 
+  <ion-list>
+	  <ion-item *ngFor="let item of items">
+	    <ion-thumbnail item-start style="background-color: #0066b1" class="tumb">
+	      <div class="tumb" style="font-size: 30px; color: white;"><b>{{item.OccupationCode}}</b></div>
+	    </ion-thumbnail>
+	    <h2>{{item.FullName}}</h2>
+    	<p>{{item.Phone1}}</p>
+	    <i item-end class="material-icons" style="font-size: 50px; color: #0066b1" (tap)="call(item.Phone1)">call</i>
+	  </ion-item>
+	</ion-list>
+	<ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())" *ngIf="totalitems > param.end">
+  	<ion-infinite-scroll-content
+  		loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+  	>
+  	</ion-infinite-scroll-content>
+ 	</ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown" 
+      pullingText="Pull to refresh" 
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list *ngIf="items">
+    <ion-item *ngFor="let item of items" (tap)="opendetail(item)">
+      <ion-thumbnail item-start style="background-color: #0066b1" class="tumb">
+        <div class="tumb" style="font-size: 14px; color: white;">{{item.OverTimeDate | date : 'yyyy'}}</div>
+        <div class="tumb" style="font-size: 30px; color: white;"><b>{{item.OverTimeDate | date : 'd'}}</b></div>
+        <div class="tumb" style="font-size: 20px; color: white;">{{item.OverTimeDate | date : 'MMM'}}</div>
+      </ion-thumbnail>
+      <h2 style="color: #0066b1;" text-left><b>Dari : {{item.StartOverApprove}} WIB</b></h2>
+      <h2 style="color: #0066b1;" text-left><b>Sampai : {{item.EndOverApprove}} WIB</b></h2>
+    </ion-item>
+  </ion-list>
+  <ion-list no-lines *ngIf="nodata" class="tumb">
+    <ion-item href="#">&nbsp;</ion-item>
+    <ion-item class="tumb">
+      <ion-icon class="tumb" name="ios-cloudy-outline" style="font-size: 200px" color="button" no-padding></ion-icon>
+      <span style="color: #0066b1; font-size: 26px;" class="tumb">Belum ada Lembur</span>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())" *ngIf="totalitems > param.end">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    >
+    </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  <ion-fab right bottom (tap)="addLembur()">
+    <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "mondrive",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

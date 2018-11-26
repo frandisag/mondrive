@@ -1,0 +1,96 @@
+<ion-header>
+
+  <ion-navbar color="button">
+    <ion-title>Detail Lembur</ion-title>
+    <ion-buttons end>    
+      <button ion-button icon-only (tap)="dismiss()" style="padding-right:5px">
+        <ion-icon name="ios-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <h1 text-center><b><u>Detail Lembur</u></b></h1>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+				<ion-row no-padding>
+					<ion-col text-right no-padding style="padding-top: 5px;padding-bottom: 5px;">Driver &nbsp;&nbsp;:</ion-col>
+					<ion-col text-left no-padding style="padding-top: 5px;padding-bottom: 5px;">&nbsp;&nbsp;{{param.FullName}}</ion-col>
+				</ion-row>
+        <ion-row no-padding>
+          <ion-col text-right no-padding style="padding-top: 5px;padding-bottom: 5px;">Dari Jam &nbsp;&nbsp;:</ion-col>
+          <ion-col text-left no-padding style="padding-top: 5px;padding-bottom: 5px;">&nbsp;&nbsp;{{param.StartOverApprove}} WIB</ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col text-right no-padding style="padding-top: 5px;padding-bottom: 5px;">Sampai Jam &nbsp;&nbsp;:</ion-col>
+          <ion-col text-left no-padding style="padding-top: 5px;padding-bottom: 5px;">&nbsp;&nbsp;{{param.EndOverApprove}} WIB</ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col text-right no-padding style="padding-top: 5px;padding-bottom: 5px;">Tanggal &nbsp;&nbsp;:</ion-col>
+          <ion-col text-left no-padding style="padding-top: 5px;padding-bottom: 5px;">&nbsp;&nbsp;{{param.OverTimeDate | date: 'd MMMM y'}}</ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col text-right no-padding style="padding-top: 5px;padding-bottom: 5px;">Catatan &nbsp;&nbsp;:</ion-col>
+          <ion-col text-left no-padding style="padding-top: 5px;padding-bottom: 5px;">&nbsp;&nbsp;{{param.Note}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <br>
+	<ion-grid *ngIf="page == 'lembur' && OccupationCode =='GA'">
+		<ion-list no-line padding style="padding-top: 0px">
+			<ion-label stacked text-left color="button">Dari Jam : </ion-label>
+			<ion-item no-line class="rounded">
+				<!-- <ion-label>Tanggal Pengisian</ion-label> -->
+				<ion-datetime displayFormat="HH : mm" [(ngModel)]="param.StartOver"></ion-datetime>
+				<button ion-button icon-only style="margin: auto; padding-right: 5px" clear item-right disabled>
+					<ion-icon name="ios-time" color="button" style="font-size: 2.5em"></ion-icon>
+				</button>
+			</ion-item>
+			<ion-label stacked text-left color="button">Sampai Jam : </ion-label>
+			<ion-item no-line class="rounded">
+				<!-- <ion-label>Tanggal Pengisian</ion-label> -->
+				<ion-datetime displayFormat="HH : mm" [(ngModel)]="param.EndOver"></ion-datetime>
+				<button ion-button icon-only style="margin: auto; padding-right: 5px" clear item-right disabled>
+					<ion-icon name="ios-time" color="button" style="font-size: 2.5em"></ion-icon>
+				</button>
+			</ion-item>
+		</ion-list>
+		<ion-row no-padding class="back">
+			<ion-col text-left no-padding>
+				<button 
+					*ngIf="buttonleft" 
+					[disabled]="buttonleftdisabled"
+					ion-button 
+					outline 
+					round 
+					style="height: 56px; width: 56px" 
+					color="light" 
+					(swipe)="swiped($event)">
+					<ion-spinner name="crescent" class="leftload" *ngIf="leftload"></ion-spinner>
+  				<ion-icon name="md-checkmark" *ngIf="!leftload" style="font-size: 50px;"></ion-icon>
+				</button>
+				<ion-label *ngIf="buttonleft" class="labeltext"><b>Terima >></b></ion-label>
+			</ion-col>
+			<ion-col text-right no-padding>
+				<ion-label *ngIf="buttonright" class="labeltext"><b><< Tolak</b></ion-label>
+				<button 
+					*ngIf="buttonright" 
+					[disabled]="buttonrightdisabled"
+					ion-button 
+					outline 
+					icon-only 
+					round style="height: 56px; width: 56px" 
+					color="light" 
+					(swipe)="swiped($event)">
+		  		<ion-icon name="md-close" *ngIf="!rightload" style="font-size: 50px;"></ion-icon>
+		  		<ion-spinner name="crescent" class="rightload" *ngIf="rightload"></ion-spinner>
+				</button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

@@ -1,0 +1,52 @@
+<!--
+  Generated template for the BahanbakardetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="button">
+    <ion-title>Detail Bahan Bakar</ion-title>
+    <ion-buttons end>    
+        <button ion-button icon-only (tap)="dismiss()" style="padding-right:5px">
+          <ion-icon name="ios-close"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <h1 text-center><b><u>Detail Bahan Bakar</u></b></h1>
+    <ion-card no-padding>
+      <ion-card-content text-center>
+        <ion-icon class="foto" *ngIf="!param.KwitansiPhoto" name="md-camera" style="color: #afafaf; font-size: 25px;"></ion-icon>
+        <img *ngIf="param.KwitansiPhoto" [src]="param.KwitansiPhoto">
+        <br>
+        <ion-grid>
+          <ion-row no-padding>
+            <ion-col text-right no-padding style="padding-top: 5px;padding-bottom: 5px;">Mobil &nbsp;&nbsp;:</ion-col>
+            <ion-col text-left no-padding style="padding-top: 5px;padding-bottom: 5px;">&nbsp;&nbsp;{{param.BrandName}} {{param.PlatNo}}</ion-col>
+          </ion-row>
+          <ion-row no-padding>
+            <ion-col text-right no-padding style="padding-top: 5px;padding-bottom: 5px;">Volume &nbsp;&nbsp;:</ion-col>
+            <ion-col text-left no-padding style="padding-top: 5px;padding-bottom: 5px;">&nbsp;&nbsp;{{param.Volume}} L</ion-col>
+          </ion-row>
+          <ion-row no-padding>
+            <ion-col text-right no-padding style="padding-top: 5px;padding-bottom: 5px;">Harga &nbsp;&nbsp;:</ion-col>
+            <ion-col text-left no-padding style="padding-top: 5px;padding-bottom: 5px;">&nbsp;&nbsp;{{param.Price | currency:"Rp. ":0}}</ion-col>
+          </ion-row>
+          <ion-row no-padding>
+            <ion-col text-right no-padding style="padding-top: 5px;padding-bottom: 5px;">Tanggal Pengisian &nbsp;&nbsp;:</ion-col>
+            <ion-col text-left no-padding style="padding-top: 5px;padding-bottom: 5px;">&nbsp;&nbsp;{{param.FuelChargerDate| date : 'd MMM yyyy'}}</ion-col>
+          </ion-row>
+          <ion-row no-padding>
+            <ion-col text-right no-padding style="padding-top: 5px;padding-bottom: 5px;">Catatan &nbsp;&nbsp;:</ion-col>
+            <ion-col text-left no-padding style="padding-top: 5px;padding-bottom: 5px;">&nbsp;&nbsp;{{param.Note}}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+</ion-content>

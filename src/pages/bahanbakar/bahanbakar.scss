@@ -1,0 +1,29 @@
+page-bahanbakar {
+	ion-card.card {
+		box-shadow: none;
+		min-height: 200px;
+		border: 2px dashed #ececec;
+		border-radius: 5%;
+		background: transparent;
+		align-content: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.roundedx {
+	  border: solid 1px #0066b1;
+	  width: 100%;
+	  opacity: 0.8;
+	  -moz-border-radius: 20px;
+	  -webkit-border-radius: 20px;
+	}
+
+	/* input {
+		text-align: right;
+	    ::-webkit-input-placeholder {
+	      text-align: left !important;
+	    }
+	 } */
+}

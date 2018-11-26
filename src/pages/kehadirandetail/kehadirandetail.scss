@@ -1,0 +1,22 @@
+page-kehadirandetail {
+    ion-card.card {
+		font-weight: bolder;
+		box-shadow: none;
+		border: 1px solid #ececec;
+		//border-radius: 5%;
+		background: transparent;
+	}
+
+	.foto {
+		box-shadow: none !important;;
+		min-height: 200px;
+		border: transparent;
+		//border-radius: 5%;
+		background: transparent;
+		align-content: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+	}
+}

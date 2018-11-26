@@ -1,0 +1,9 @@
+@font-face {
+	font-family: Roboto_Light;
+	src: url('../assets/fonts/Roboto-Light.ttf') format("truetype");
+}
+page-menus {
+	ion-split-pane {
+		font-family: Roboto_Light !important;
+	}
+}

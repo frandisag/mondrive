@@ -1,0 +1,24 @@
+<ion-content class="background">
+	<ion-card>
+    <ion-card-header>
+      <div class="cardheader">MONDRIVE</div>
+      <div class="carddesc">Monitoring Driver Apps</div>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-line no-padding>
+        <ion-item no-line text-center class="rounded">
+          <ion-input type="text" placeholder="Nama Pengguna..." [(ngModel)]="param.username"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item no-line class="rounded">
+          <ion-input block round type="password" placeholder="Kata Sandi..." [(ngModel)]="param.password"></ion-input>
+        </ion-item>
+        <br>
+        <button ion-button block round color="button" (tap)="login()">
+          <ion-label *ngIf="!log">&nbsp;Masuk</ion-label>
+          <ion-spinner class="spinner-energized" *ngIf="log"></ion-spinner>
+        </button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,82 @@
+@font-face {
+	font-family: Monoton_Regular;
+	src: url('../assets/fonts/Monoton-Regular.ttf') format("truetype");
+}
+
+@font-face {
+	font-family: Roboto_Thin;
+	src: url('../assets/fonts/Roboto-Thin.ttf') format("truetype");
+}
+page-home {
+	ion-title {
+		font-family: Monoton_Regular !important;
+		font-style: italic;
+	}
+
+	.badge-md {
+		border-radius: 50%;
+	}
+
+	ion-badge {
+		position: absolute;
+		margin: 20px;
+		min-width: 25px;
+		padding: 5px;
+    	right: 0px;
+    	//top: 0px;
+    	z-index: -1;
+	}
+
+	img{
+    height: 100px;
+    width: 100px;
+    border-radius:50%;	
+    border: 4px solid white;
+  }
+
+  ion-card.card {
+		box-shadow: none;
+		border: 1px solid #ececec;
+		border-radius: 5%;
+		background: transparent;
+	}
+
+  .middlerow{
+  	background-image: url('../assets/imgs/home.jpg');
+  	width: 100%;
+  	height: 35%;
+		background-position: bottom center;
+		//background-repeat: repeat-x;
+		align-items: center;
+
+	}
+
+	.statusrow {
+		width: 100%;
+		height: 16px;
+		background-color: #73E925;
+		//font-family: Roboto_Thin !important;
+		color: white;
+	}
+	.statustugasrow {
+		width: 100%;
+		height: 16px;
+		background-color: #F00C0D;
+		//font-family: Roboto_Thin !important;
+		color: white;
+	}
+
+	.nickname {
+		font-family: Roboto_Thin !important;
+		color: white;
+		font-size: 20px;
+		font-weight: bolder;
+	}
+
+	.car {
+		font-family: Roboto_Thin !important;
+		color: white;
+		font-size: 14px;
+		font-weight: bolder;
+	}
+}

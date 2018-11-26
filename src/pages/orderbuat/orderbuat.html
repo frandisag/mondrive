@@ -1,0 +1,73 @@
+<ion-header>
+
+  <ion-navbar color="button">
+    <ion-title>Buat Order</ion-title>
+    <ion-buttons end>
+	    <button ion-button icon-only (tap)="dismiss()" style="padding-right:5px">
+	      <ion-icon name="ios-close"></ion-icon>
+	    </button>
+	  </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<ion-list no-line padding style="padding-top: 0px">
+		<ion-label stacked text-left color="button">Pilih Driver : </ion-label>
+    <ion-item no-line text-left class="rounded">
+    	<ion-label><span style="display: none;">Pilih Driver</span></ion-label>
+      <ion-select [(ngModel)]="param.OrderBy" text-right [disabled]="isEnabled">
+		    <ion-option *ngFor="let employee of employees" [value]="employee.EmployeeId">{{employee.FullName}}</ion-option>
+		  </ion-select>
+    </ion-item>
+    <!-- <br> -->
+  	<ion-label stacked text-left color="button">Pilih Mobil : </ion-label>
+    <ion-item no-line text-left class="rounded">
+    	<ion-label><span style="display: none;">Pilih Mobil</span></ion-label>
+      <ion-select [(ngModel)]="param.CarBankId" text-right>
+		    <ion-option *ngFor="let car of cars" [value]="car.CarBankId">{{car.BrandName}} {{car.PlatNo}}</ion-option>
+		  </ion-select>
+    </ion-item>
+    <!-- <br> -->
+    <ion-label stacked text-left color="button">Dari :</ion-label>
+    <ion-item no-line class="rounded">
+      <ion-input
+        block
+        round
+        type="text"
+        placeholder=""
+        [(ngModel)]="param.dari">
+      </ion-input>
+    </ion-item>
+    <ion-label stacked text-left color="button">Tujuan :</ion-label>
+    <ion-item no-line class="rounded">
+      <ion-input
+        block
+        round
+        type="text"
+        placeholder=""
+        [(ngModel)]="param.tujuan">
+      </ion-input>
+    </ion-item>
+    <ion-label stacked text-left color="button">Nama Penumpang:</ion-label>
+    <ion-item no-line class="rounded">
+      <ion-input
+        block
+        round
+        type="text"
+        placeholder=""
+        [(ngModel)]="param.NamaPenumpang">
+      </ion-input>
+    </ion-item>
+    <ion-label stacked text-left color="button">Catatan :</ion-label>
+    <ion-item no-line class="roundedx">
+      <ion-textarea rows="4" [(ngModel)]="param.Catatan"></ion-textarea>
+    </ion-item>
+    <br>
+    <button ion-button block round color="button" (tap)="simpan()">
+      <ion-label *ngIf="!simpanload">&nbsp;Simpan</ion-label>
+      <ion-spinner class="spinner-energized" *ngIf="simpanload"></ion-spinner>
+    </button>
+  </ion-list>
+</ion-content>
